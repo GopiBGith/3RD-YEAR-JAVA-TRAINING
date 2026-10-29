@@ -1,56 +1,20 @@
-import java.util.Scanner;
-
 public class string {
-    public static void main (String[]args){
-        Scanner dog = new Scanner(System.in);
+    public static void main(String[] args) {
+        String name = "s u c c e s f u l.";
+        int[] freq = new int[26];
 
-        System.out.print("Enter a string: ");
-        String a = dog.nextLine();
-       // String a="jayaseelan";
-        String b="";
-    for(int i = a.length()-1 ;i>=0;i--){
-        b=b+ a.charAt(i);
-    }
-    int car=a.length();
+        for (int i = 0; i < name.length(); i++) {
+            char ch = name.charAt(i);
 
-
-        int vowels = 0;
-        int consonants = 0;
-
-    
-        for (int i = 0; i < a.length(); i++) {
-            char ch = Character.toLowerCase(a.charAt(i));
-
-            if (Character.isLetter(ch)) {
-                if (ch == 'a' || ch == 'e' || ch == 'i'
-                        || ch == 'o' || ch == 'u') {
-                    vowels++;
-                } else {
-                    consonants++;
-                }
+            if (ch >= 'a' && ch <= 'z') {
+                freq[ch-'a']++;
             }
         }
 
-    
-        System.out.println("total words: " + a.length());
-        System.out.println("V: " + vowels);
-        System.out.println("C: " + consonants);
-
-        
-        String cleaned = a.replaceAll("s+", "")
-                            .toLowerCase();
-
-        String reversed = new StringBuilder(cleaned)
-                            .reverse().toString();
-
-        if (cleaned.equals(reversed)) {
-            System.out.println("The string is a palindrome.");
-        } else {
-            System.out.println("The string is not a palindrome.");
+        for (int i = 0; i < 26; i++) {
+            if (freq[i] > 0) {
+                System.out.println((char) (i + 'a') + " : " + freq[i]);
+            }
         }
-
-
-    System.out.println("count of name:"+car);
-    System.out.println("reveres word:"+b);
-
-    }}
+    }
+}
